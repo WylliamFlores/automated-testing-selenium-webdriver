@@ -47,4 +47,12 @@ public class LoginTests {
 		page.login();
 		Assert.assertEquals("Senha é um campo obrigatório", page.getMessageError());
 	}
+	
+	@Test
+	public void logInInvalid() {
+		page.setEmail("wylliam.mflores@gmail.com");
+		page.setPassword("invalid");
+		page.login();
+		Assert.assertEquals("Problemas com o login do usuário", page.getMessageError());
+	}
 }
