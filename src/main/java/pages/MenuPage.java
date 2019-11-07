@@ -8,19 +8,18 @@ public class MenuPage {
 	
 	public MenuPage () {}
 	
-	By account = By.className("dropdown-toggle");
-	By addAccount = By.linkText("/addConta");
-	By listAccount = By.linkText("/contas");
+	By account = By.xpath("//*[@class='nav navbar-nav']//li[@class='dropdown']");
+	By addAccount = By.xpath("//*[@class='nav navbar-nav']//li//a[contains(@href,'/addConta')]");
+	By listAccount = By.xpath("//*[@class='nav navbar-nav']//li//a[contains(@href,'/contas')]");
 	
-	public void clickAccount() {
-		DriverFactory.getDriver().findElement(account).click();
-	}
 	
 	public void clickAddAccount() {
+		DriverFactory.getDriver().findElement(account).click();
 		DriverFactory.getDriver().findElement(addAccount).click();
 	}
 	
 	public void clickListAccount() {
+		DriverFactory.getDriver().findElement(account).click();
 		DriverFactory.getDriver().findElement(listAccount).click();
 	}
 }
