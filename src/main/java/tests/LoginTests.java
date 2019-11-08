@@ -1,11 +1,18 @@
 package tests;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import core.DriverFactory;
 import pages.LoginPage;
@@ -22,8 +29,16 @@ public class LoginTests {
 		page = new LoginPage();
 	}
 
+	@Rule
+	public TestName testName = new TestName();
+
 	@After
-	public void end() {
+	public void end()throws IOException{
+		TakesScreenshot ss = (TakesScreenshot) DriverFactory.getDriver();
+		File archive = ss.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(archive, new File("target" + File.separator + "screenshot" +
+				File.separator + testName.getMethodName() + ".jpg"));
+
 		DriverFactory.killDriver();
 	}
 
