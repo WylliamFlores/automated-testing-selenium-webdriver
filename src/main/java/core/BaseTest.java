@@ -5,12 +5,13 @@ import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
+
 import pages.LoginPage;
 
 public class BaseTest {
-	
+
 	private LoginPage page = new LoginPage();
-	
+
 	@Before
 	public void initialize() {
 		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Informatica\\eclipse-workspace\\driver\\geckodriver.exe");
@@ -19,7 +20,7 @@ public class BaseTest {
 		page.loginSuccess("wylliam.mflores@gmail.com", "0123456789");
 		DriverFactory.getDriver().findElement(By.linkText("reset")).click();
 	}
-	
+
 	@After
 	public void end() {
 		DriverFactory.killDriver();
