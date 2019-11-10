@@ -1,0 +1,13 @@
+Notes:
+1. Change the POM file
+2. Change the DriverFactory file
+3. Set up Mavem
+	http://www.matera.com/blog/post/tutorial-instalacao-apache-maven-configuracao-eclipse
+4. prompt commands in project:
+	mvn clean compile
+	mvn test
+
+Observation
+Problem:"No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?"
+Solution: http://roufid.com/no-compiler-is-provided-in-this-environment/
+	
